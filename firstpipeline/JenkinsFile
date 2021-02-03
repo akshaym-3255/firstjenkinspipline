@@ -1,9 +1,11 @@
 pipeline{
-   agent any
+   agent {
+       docker { image 'python:3.7.2' }
+   }
    stages {
        stage('build'){
            steps {
-                echo "hello world"
+                sh 'python3 hello.py'
             }
        }
    }
