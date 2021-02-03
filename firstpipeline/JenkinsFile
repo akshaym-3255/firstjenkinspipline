@@ -2,10 +2,14 @@ pipeline{
    agent {
        docker { image 'python:3.7.2' }
    }
+   parameters {
+        choice(name: 'ENVIRONMENT', choices: ['DEV', 'STABLE', 'PREPROD', 'PROD'],
+                description: 'Pick an environment to deploy the DB changes')
+    }
    stages {
        stage('build'){
            steps {
-                sh 'python3 hello.py'
+                echo ${params.ENVIRONMENT}
             }
        }
    }
