@@ -9,7 +9,7 @@ pipeline{
            steps {
                sh 'ls'
                sh "pwd"
-                sh 'python3 hello.py'
+                sh 'python3 firstpipeline/hello.py'
             }
        }
    }
