@@ -1,7 +1,5 @@
 pipeline{
-   agent {
-       docker { image 'python:3.7.2' }
-   }
+   agent any
    parameters {
         choice(name: 'ENVIRONMENT', choices: ['DEV', 'STABLE', 'PREPROD', 'PROD'],
                 description: 'Pick an environment to deploy the DB changes')
